@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DesktopDocumentSigner.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            BackgroundColor="#F5F5F5">
+            <Image
+                Source="logo.webp"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a hovercraft number nine" />
+
+            <Label
+                Text="Document Signer"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="Waiting for Documents"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2" />
+
+            <CollectionView
+                x:Name="LogCollection"
+                ItemsSource="{Binding LogEntries}"
+                HeightRequest="200"
+                BackgroundColor="White">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label
+                            Text="{Binding}"
+                            FontSize="14"
+                            TextColor="#333333"
+                            Padding="5" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout>
+                <Entry
+                    x:Name="CertificateHashEntry"
+                    Placeholder="Enter Certificate Hash"
+                    FontSize="14"
+                    BackgroundColor="White"
+                    TextColor="#333333"
+                    WidthRequest="400"
+                    />
+
+                <Entry
+                    x:Name="LocationEntry"
+                    Placeholder="Enter Location"
+                    FontSize="14"
+                    BackgroundColor="White"
+                    TextColor="#333333"
+                    WidthRequest="400"
+                    />
+
+                <Button
+                    Text="Save"
+                    FontSize="16"
+                    Padding="10"
+                    />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
